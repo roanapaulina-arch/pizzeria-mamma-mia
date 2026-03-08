@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.header-background {
+    background-size: cover;      
+    background-position: center;  
+    height: 300px;               
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
