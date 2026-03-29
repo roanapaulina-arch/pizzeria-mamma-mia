@@ -14,7 +14,7 @@ const Home = () => {
               name="Napolitana"
               price={5950}
               ingredients={["mozzarella", "tomates", "jamón", "orégano"]}
-              img="https://firebasestorage.googleapis.com/v0/b/apis-varias-mias.appspot.com/o/pizzeria%2Fpizza-1239077_640_cl.jpg?alt=media&token=6a9a33da-5c00-49d4-9080-784dcc87ec2c"
+              img="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
           </div>
 
@@ -24,7 +24,7 @@ const Home = () => {
               name="Española"
               price={6950}
               ingredients={["mozzarella", "gorgonzola", "parmesano", "provolone"]}
-              img="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=2069&auto=format&fit=crop"
+              img="https://images.unsplash.com/photo-1642789736327-14d9c36496d7?q=80&w=443&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
           </div>
 
