@@ -3,15 +3,23 @@ const CardPizza = ({ name, price, ingredients, img }) => {
     <div className="card h-100 shadow-sm">
       <img src={img} className="card-img-top" alt={name} />
       <div className="card-body text-center">
-        <h4 className="card-title text-start fw-light">Pizza {name}</h4>
+        <h5 className="card-title fw-bold text-capitalize">Pizza {name}</h5>
         <hr />
-        <p className="card-text text-muted mb-0">Ingredientes:</p>
-        <p className="card-text small">🍕 {ingredients.join(", ")}</p>
-        <hr />
-        <h5 className="fw-bold mb-3">Precio: ${price.toLocaleString('es-CL')}</h5>
-        <div className="d-flex justify-content-around">
-          <button className="btn btn-outline-dark btn-sm">Ver Más 👀</button>
-          <button className="btn btn-dark btn-sm">Añadir 🛒</button>
+        <p className="card-text fw-light">Ingredientes:</p>
+        
+        {/* Lista de ingredientes (Requerimiento 2) */}
+        <ul className="list-unstyled">
+          {ingredients.map((ingrediente, index) => (
+            <li key={index}>🍕 {ingrediente}</li>
+          ))}
+        </ul>
+      </div>
+      
+      <div className="card-footer bg-white border-top-0 text-center pb-4">
+        <h3 className="fw-bold">Precio: ${price.toLocaleString()}</h3>
+        <div className="d-flex justify-content-around mt-3">
+          <button className="btn btn-outline-dark">Ver Más 👀</button>
+          <button className="btn btn-dark text-white">Añadir 🛒</button>
         </div>
       </div>
     </div>
