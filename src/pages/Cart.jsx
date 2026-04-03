@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { pizzaCart as initialCart } from "../pizzas"; 
+import { pizzaCart as initialCart } from "../pizzas";
+ 
 
 const Cart = () => {
   // 1. Estado del carrito usando los datos iniciales

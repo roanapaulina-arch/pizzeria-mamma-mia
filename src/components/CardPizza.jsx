@@ -1,7 +1,9 @@
 const CardPizza = ({ name, price, ingredients, img }) => {
   return (
     <div className="card h-100 shadow-sm">
-      <img src={img} className="card-img-top" alt={name} />
+      <img src={img} className="card-img-top" alt={name} onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1000&auto=format&fit=crop";
+      }}
+      />
       <div className="card-body text-center">
         <h5 className="card-title fw-bold text-capitalize">Pizza {name}</h5>
         <hr />
