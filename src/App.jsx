@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { CartProvider } from "./context/CartContext"; 
 
 // Carpeta pages importada
 import Home from "./pages/Home";
@@ -13,23 +14,25 @@ import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/pizza/p001" element={<Pizza />} />
-        <Route path="/profile" element={<Profile />} />
+    
+    <CartProvider>
+      <div>
+        <Navbar />
         
-        
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/pizza/p001" element={<Pizza />} />
+          <Route path="/profile" element={<Profile />} />
+          
+          <Route path="*" element={<NotFound />} />
+        </Routes>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </CartProvider>
   );
 }
 
