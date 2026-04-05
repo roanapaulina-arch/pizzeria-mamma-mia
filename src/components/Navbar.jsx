@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-// 1. Importamos el hook y el contexto
 import { useContext } from "react";
-import { CartContext } from "../context/CartContext"; 
+import { UserContext } from "../context/UserContext";
+import { CartContext } from "../context/CartContext";
 
 const Navbar = () => {
-  // 2. Extraemos 'total' del contexto. 
+  // Traemos token y logout del UserContext
+  const { token, logout } = useContext(UserContext);
+  // Traemos el total del CartContext 
   const { total } = useContext(CartContext);
-  
-  const token = false;
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
@@ -26,7 +26,11 @@ const Navbar = () => {
               🔓 Profile
             </Link>
             
-            <button className="btn btn-sm btn-outline-light ms-2">
+            {/* AGREGAMOS EL ONCLICK AQUÍ */}
+            <button 
+              className="btn btn-sm btn-outline-light ms-2"
+              onClick={() => logout()}
+            >
               🔒 Logout
             </button>
           </>
@@ -42,7 +46,6 @@ const Navbar = () => {
         )}
       </div>
 
-      
       <Link to="/cart" className="btn btn-outline-info text-white">
         🛒 Total: ${total.toLocaleString("es-CL")}
       </Link>

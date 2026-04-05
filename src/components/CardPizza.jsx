@@ -1,14 +1,12 @@
 import { useContext } from "react";
-// 1. Importamos el contexto
+// 1. Importamos Link de react-router-dom
+import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
 const CardPizza = ({ id, name, price, ingredients, img }) => {
-  // 2. Extraemos la función addToCart del contexto
   const { addToCart } = useContext(CartContext);
 
-  // 3. Creamos una función manejadora para el clic
   const handleAdd = () => {
-    // Reconstruimos el objeto pizza para que el carrito lo reciba completo
     const pizza = { id, name, price, ingredients, img };
     addToCart(pizza);
   };
@@ -38,7 +36,14 @@ const CardPizza = ({ id, name, price, ingredients, img }) => {
       <div className="card-footer bg-white border-top-0 text-center pb-4">
         <h3 className="fw-bold">Precio: ${price.toLocaleString()}</h3>
         <div className="d-flex justify-content-around mt-3">
-          <button className="btn btn-outline-dark">Ver Más 👀</button>
+          
+          {/* 2. Transformamos el botón en un Link dinámico */}
+          <Link 
+            to={`/pizza/${id}`} 
+            className="btn btn-outline-dark"
+          >
+            Ver Más 👀
+          </Link>
           
           <button 
             className="btn btn-dark text-white"
