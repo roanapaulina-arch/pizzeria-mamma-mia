@@ -1,12 +1,14 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
+
+// Componentes Globales
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-// Importamos el UserContext para saber si el usuario está logueado
+// Contexto para manejar la seguridad de las rutas
 import { UserContext } from "./context/UserContext";
 
-// Carpeta pages importada
+// Importación de Páginas
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -16,41 +18,43 @@ import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
 function App() {
-  // Extraemos el token del contexto global
   const { token } = useContext(UserContext);
 
   return (
-    <div>
+    <div className="d-flex flex-column min-vh-100">
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
+      {/* Contenedor de Rutas */}
+      <main className="flex-grow-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        {/* REQUERIMIENTO 5: Si el token es true (usuario logueado), 
-            no debería poder entrar a Login ni Register. Lo mandamos al Home. */}
-        <Route
-          path="/register"
-          element={!token ? <Register /> : <Navigate to="/" />}
-        />
-        <Route
-          path="/login"
-          element={!token ? <Login /> : <Navigate to="/" />}
-        />
+          {/* REQUERIMIENTO 5: Redirección si ya está logueado */}
+          <Route
+            path="/register"
+            element={!token ? <Register /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/login"
+            element={!token ? <Login /> : <Navigate to="/" />}
+          />
 
-        <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart />} />
 
-        {/* REQUERIMIENTO 1: Ruta dinámica para cualquier pizza */}
-        <Route path="/pizza/:id" element={<Pizza />} />
+          {/* Ruta dinámica para el detalle de cada pizza */}
+          <Route path="/pizza/:id" element={<Pizza />} />
 
-        {/* REQUERIMIENTO 5: Si el token es false, no puede entrar a Profile.
-            Lo mandamos al Login. */}
-        <Route
-          path="/profile"
-          element={token ? <Profile /> : <Navigate to="/login" />}
-        />
+          {/* REQUERIMIENTO 5: Protección de ruta Profile */}
+          <Route
+            path="/profile"
+            element={token ? <Profile /> : <Navigate to="/login" />}
+          />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          {/* Ruta para manejar errores 404 */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+
       <Footer />
     </div>
   );

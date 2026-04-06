@@ -29,7 +29,7 @@ const Navbar = () => {
             {/* AGREGAMOS EL ONCLICK AQUÍ */}
             <button 
               className="btn btn-sm btn-outline-light ms-2"
-              onClick={() => logout()}
+              onClick={logout}
             >
               🔒 Logout
             </button>
